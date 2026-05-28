@@ -140,23 +140,16 @@ body.vi .kr-text { display: none; }
 .val-item h3 { font-size: 17px; font-weight: 800; margin-bottom: 10px; line-height: 1.4; }
 .val-item p { font-size: 14px; color: var(--muted); line-height: 1.8; }
 
-/* CURRICULUM */
-.curriculum-section { background: var(--orange); color: #fff; }
-.curriculum-section .sec-label { color: rgba(255,255,255,.55); }
-.curriculum-section .sec-title { color: #fff; }
-.cur-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 48px; }
-.cur-pill { background: rgba(255,255,255,.15); color: #fff; font-size: 12px; font-weight: 600; padding: 7px 16px; border-radius: 100px; }
-.cur-table { width: 100%; border-collapse: collapse; }
-.cur-table tr { border-top: 1px solid rgba(255,255,255,.2); }
-.cur-table tr:first-child { border-top: none; }
-.cur-table td { padding: 28px 20px; vertical-align: top; }
-.cur-wk { width: 110px; font-size: 11px; font-weight: 700; letter-spacing: 1px; opacity: .6; padding-top: 32px; }
-.cur-wk strong { display: block; font-size: 28px; font-weight: 900; opacity: 1; color: #fff; margin-top: 2px; letter-spacing: -1px; }
-.cur-topic h4 { font-size: 17px; font-weight: 800; margin-bottom: 8px; }
-.cur-topic p { font-size: 13px; opacity: .75; line-height: 1.7; }
-.cur-out { width: 200px; }
-.cur-out-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: .5; margin-bottom: 6px; }
-.cur-out-val { font-size: 13px; font-weight: 700; opacity: .9; line-height: 1.5; }
+/* SHOWCASE */
+.showcase-section { background: #F15A22; color: #fff; }
+.showcase-section .sec-label { color: rgba(255,255,255,.55); }
+.showcase-section .sec-title { color: #fff; }
+.showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 56px; }
+.showcase-desc { font-size: 16px; line-height: 1.85; color: rgba(255,255,255,.88); margin-bottom: 32px; }
+.showcase-cta { display: inline-flex; align-items: center; gap: 8px; background: #111; color: #fff; padding: 14px 32px; border-radius: 8px; font-weight: 800; font-size: 15px; text-decoration: none; transition: opacity .15s; }
+.showcase-cta:hover { opacity: .85; }
+.showcase-video-wrap { border-radius: 24px; overflow: hidden; aspect-ratio: 16/10; border: 1.5px solid rgba(255,255,255,.2); }
+.showcase-video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* EARLY */
 .early-section { background: var(--black); color: #fff; }
@@ -229,7 +222,7 @@ footer p { font-size: 12px; }
   .cards-row { grid-template-columns: 1fr; }
   .values-grid { grid-template-columns: 1fr; gap: 32px; }
   .early-grid { grid-template-columns: 1fr; }
-  .cur-out { display: none; }
+  .showcase-grid { grid-template-columns: 1fr; gap: 40px; }
   footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
 }
 </style>
@@ -437,105 +430,34 @@ footer p { font-size: 12px; }
   </div>
 </section>
 
-<!-- CURRICULUM -->
-<section class="section curriculum-section">
+<!-- SHOWCASE -->
+<section class="section showcase-section">
   <div class="container">
     <p class="sec-label">
-      <span class="vi-text">Chương trình học</span>
-      <span class="kr-text">커리큘럼</span>
+      <span class="vi-text">Showcase · Cohort 01</span>
+      <span class="kr-text">쇼케이스 · 코호트 01</span>
     </p>
-    <h2 class="sec-title">
-      <span class="vi-text">4 tuần chạy nước rút.<br>Ra về với sản phẩm thật.</span>
-      <span class="kr-text">4주 집중 과정.<br>진짜 결과물을 들고 돌아가세요.</span>
-    </h2>
-    <div class="cur-meta">
-      <span class="cur-pill">
-        <span class="vi-text">📍 Offline · HCMC</span>
-        <span class="kr-text">📍 오프라인 · HCMC</span>
-      </span>
-      <span class="cur-pill">
-        <span class="vi-text">📅 Thứ 7 · 2 giờ/buổi</span>
-        <span class="kr-text">📅 매주 토요일 · 2시간</span>
-      </span>
-      <span class="cur-pill">
-        <span class="vi-text">👥 Tối đa 20 người</span>
-        <span class="kr-text">👥 최대 20명</span>
-      </span>
-      <span class="cur-pill">
-        <span class="vi-text">🗓️ Khai giảng: TBA</span>
-        <span class="kr-text">🗓️ 개강일: 추후 공지</span>
-      </span>
+    <div class="showcase-grid">
+      <div>
+        <h2 class="sec-title" style="margin-bottom:20px;">
+          <span class="vi-text">4 tuần chạy nước rút.<br>Ra về với sản phẩm thật.</span>
+          <span class="kr-text">4주 집중 과정.<br>진짜 결과물을 들고 돌아가세요.</span>
+        </h2>
+        <p class="showcase-desc">
+          <span class="vi-text">Học viên HCMC Lions không chỉ học lý thuyết — họ build thật. Từ AI agent tự động hoá công việc hàng ngày, đến công cụ phân tích dữ liệu cá nhân hoá, mỗi dự án giải quyết một vấn đề thực tế của chính người làm ra nó.</span>
+          <span class="kr-text">HCMC Lions 수강생들은 이론만 배우지 않습니다. 일상 업무를 자동화하는 AI 에이전트부터 개인화된 데이터 분석 도구까지, 각자의 실제 문제를 해결하는 진짜 프로젝트를 만들어냅니다.</span>
+        </p>
+        <a class="showcase-cta" href="#early">
+          <span class="vi-text">Đăng ký sớm →</span>
+          <span class="kr-text">얼리버드 신청하기 →</span>
+        </a>
+      </div>
+      <div class="showcase-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="assets/hero.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
-    <table class="cur-table">
-      <tr>
-        <td class="cur-wk"><span class="vi-text">Tuần</span><span class="kr-text">Week</span><strong>01</strong></td>
-        <td class="cur-topic">
-          <h4><span class="vi-text">AI Mindset</span><span class="kr-text">AI 마인드셋</span></h4>
-          <p>
-            <span class="vi-text">Tư duy của người build, không phải người dùng. Xác định vấn đề bạn muốn giải quyết bằng AI.</span>
-            <span class="kr-text">사용자가 아닌 빌더의 사고방식. AI로 해결하고 싶은 나만의 문제를 정의합니다.</span>
-          </p>
-        </td>
-        <td class="cur-out">
-          <div class="cur-out-label">Output</div>
-          <div class="cur-out-val">
-            <span class="vi-text">Xác định được problem statement của cá nhân bạn</span>
-            <span class="kr-text">나만의 문제 정의서 완성</span>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td class="cur-wk"><span class="vi-text">Tuần</span><span class="kr-text">Week</span><strong>02</strong></td>
-        <td class="cur-topic">
-          <h4><span class="vi-text">Build with Claude</span><span class="kr-text">Claude로 빌드하기</span></h4>
-          <p>
-            <span class="vi-text">Từ chat sang agent. Setup AI hoạt động trực tiếp trên máy tính của bạn.</span>
-            <span class="kr-text">채팅에서 에이전트로. AI가 내 컴퓨터에서 직접 작동하도록 설정합니다.</span>
-          </p>
-        </td>
-        <td class="cur-out">
-          <div class="cur-out-label">Output</div>
-          <div class="cur-out-val">
-            <span class="vi-text">AI agent đầu tiên của bạn đang chạy</span>
-            <span class="kr-text">나만의 첫 AI 에이전트 작동</span>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td class="cur-wk"><span class="vi-text">Tuần</span><span class="kr-text">Week</span><strong>03</strong></td>
-        <td class="cur-topic">
-          <h4><span class="vi-text">Optimize & Iterate</span><span class="kr-text">최적화 & 반복</span></h4>
-          <p>
-            <span class="vi-text">Làm cho nó thật sự chạy được trong công việc hàng ngày của bạn.</span>
-            <span class="kr-text">실제 업무에서 제대로 작동하도록 다듬고 개선합니다.</span>
-          </p>
-        </td>
-        <td class="cur-out">
-          <div class="cur-out-label">Output</div>
-          <div class="cur-out-val">
-            <span class="vi-text">Workflow AI hoạt động thực tế</span>
-            <span class="kr-text">실무에 적용 가능한 AI 워크플로우</span>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td class="cur-wk"><span class="vi-text">Tuần</span><span class="kr-text">Week</span><strong>04</strong></td>
-        <td class="cur-topic">
-          <h4><span class="vi-text">Demo Day</span><span class="kr-text">데모 데이</span></h4>
-          <p>
-            <span class="vi-text">Trình bày sản phẩm trước nhóm. Nhận feedback từ mentor và peers.</span>
-            <span class="kr-text">팀 앞에서 결과물을 발표하고 멘토와 동료들의 피드백을 받습니다.</span>
-          </p>
-        </td>
-        <td class="cur-out">
-          <div class="cur-out-label">Output</div>
-          <div class="cur-out-val">
-            <span class="vi-text">MVP hoàn chỉnh + 20 đồng đội cùng hành trình</span>
-            <span class="kr-text">완성된 MVP + 20명의 동료</span>
-          </div>
-        </td>
-      </tr>
-    </table>
   </div>
 </section>
 
