@@ -634,17 +634,21 @@ footer p { font-size: 12px; }
     {text:'Copilot',sz:'12px',op:0.32},{text:'Ollama',sz:'13px',op:0.38},
   ];
   const positions=[
-    {left:'3%',top:'8%'},{left:'78%',top:'6%'},{left:'1%',top:'24%'},{left:'82%',top:'20%'},
-    {left:'5%',top:'42%'},{left:'76%',top:'40%'},{left:'2%',top:'58%'},{left:'80%',top:'56%'},
-    {left:'4%',top:'72%'},{left:'77%',top:'70%'},{left:'1%',top:'86%'},{left:'81%',top:'84%'},
-    {left:'14%',top:'4%'},{left:'63%',top:'3%'},{left:'20%',top:'92%'},{left:'60%',top:'91%'},
-    {left:'8%',top:'16%'},{left:'74%',top:'14%'},
+    {left:'8%',top:'15%'},{left:'72%',top:'12%'},
+    {left:'6%',top:'30%'},{left:'74%',top:'28%'},
+    {left:'9%',top:'45%'},{left:'71%',top:'43%'},
+    {left:'7%',top:'60%'},{left:'73%',top:'58%'},
+    {left:'10%',top:'74%'},{left:'70%',top:'72%'},
+    {left:'8%',top:'86%'},{left:'72%',top:'84%'},
+    {left:'18%',top:'8%'},{left:'60%',top:'6%'},
+    {left:'20%',top:'90%'},{left:'58%',top:'88%'},
+    {left:'12%',top:'22%'},{left:'68%',top:'20%'},
   ];
   const c=document.getElementById('chaos-layer');
   if(!c) return;
   tags.forEach((tag,i)=>{
     const pos=positions[i%positions.length];
-    const dur=(2.5+Math.random()*2).toFixed(1)+'s';
+    const dur=(1.5+Math.random()*1.5).toFixed(1)+'s';
     const del='-'+(Math.random()*5).toFixed(1)+'s';
     const tx1=(Math.random()>.5?'':'-')+(20+Math.random()*30).toFixed(0)+'px';
     const tx2=(Math.random()>.5?'':'-')+(15+Math.random()*25).toFixed(0)+'px';
