@@ -60,7 +60,38 @@ body.vi .kr-text { display: none; }
   padding: 160px 24px 120px;
   background: linear-gradient(180deg, #fff 0%, var(--orange-light) 100%);
   text-align: center;
+  position: relative; overflow: hidden;
 }
+.floating-tags { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.ftag {
+  position: absolute;
+  background: rgba(241,90,34,0.08);
+  color: #F15A22;
+  font-size: 11px; font-weight: 700;
+  padding: 5px 14px; border-radius: 100px;
+  opacity: 0; white-space: nowrap; filter: blur(0.5px);
+}
+.ftag.from-left  { animation: driftRight var(--dur) ease-in-out infinite var(--delay); }
+.ftag.from-right { animation: driftLeft  var(--dur) ease-in-out infinite var(--delay); }
+@keyframes driftRight {
+  0%   { opacity:0; transform: translateX(-60px); }
+  20%  { opacity: var(--op); }
+  80%  { opacity: var(--op); }
+  100% { opacity:0; transform: translateX(40px); }
+}
+@keyframes driftLeft {
+  0%   { opacity:0; transform: translateX(60px); }
+  20%  { opacity: var(--op); }
+  80%  { opacity: var(--op); }
+  100% { opacity:0; transform: translateX(-40px); }
+}
+.hero-highlight {
+  color: #F15A22;
+  display: inline-block;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.hero-highlight.fade-out { opacity: 0; transform: translateY(-6px); }
+.hero-highlight.fade-in  { opacity: 1; transform: translateY(0); }
 .hero-tag {
   display: inline-block; border: 1.5px solid var(--orange); color: var(--orange);
   font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
@@ -246,9 +277,20 @@ footer p { font-size: 12px; }
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-tag">Likelion Vietnam · AI For Builders · 2026</div>
+  <div class="floating-tags">
+    <span class="ftag from-left"  style="left:2%;top:12%;--dur:4s;--delay:-0.5s;--op:0.35">Claude Code</span>
+    <span class="ftag from-right" style="right:3%;top:16%;--dur:5s;--delay:-2s;--op:0.25">Prompt Engineering</span>
+    <span class="ftag from-left"  style="left:4%;top:32%;--dur:4.5s;--delay:-3s;--op:0.3">AI Agent</span>
+    <span class="ftag from-right" style="right:2%;top:38%;--dur:3.5s;--delay:-1s;--op:0.2">LLM</span>
+    <span class="ftag from-left"  style="left:1%;top:54%;--dur:5s;--delay:-2.5s;--op:0.28">n8n Automation</span>
+    <span class="ftag from-right" style="right:4%;top:58%;--dur:4s;--delay:-4s;--op:0.22">RAG</span>
+    <span class="ftag from-left"  style="left:3%;top:72%;--dur:4.5s;--delay:-1.5s;--op:0.3">Vibe Coding</span>
+    <span class="ftag from-right" style="right:1%;top:76%;--dur:5s;--delay:-3.5s;--op:0.2">MCP</span>
+    <span class="ftag from-left"  style="left:5%;top:88%;--dur:3.5s;--delay:-4.5s;--op:0.25">ChatGPT</span>
+    <span class="ftag from-right" style="right:5%;top:84%;--dur:4s;--delay:-0.8s;--op:0.18">MVP</span>
+  </div>
   <h1>
-    <span class="vi-text">Bạn thấy choáng ngợp khi cố gắng tự học AI?</span>
+    <span class="vi-text">Bạn thấy <span class="hero-highlight fade-in" id="rw-vi">choáng ngợp</span><br>khi cố gắng tự học AI?</span>
     <span class="kr-text">혼자 AI를 공부하다가<br>막막함을 느낀 적 있으신가요?</span>
   </h1>
   <p class="hero-sub">
@@ -625,6 +667,22 @@ function setLang(lang) {
   if (phone) phone.placeholder = isVI ? '0901 234 567' : '010-1234-5678';
   if (reason) reason.placeholder = isVI ? 'Chia sẻ ngắn gọn về mục tiêu của bạn...' : '간단히 목표를 적어주세요...';
 }
+
+const wordsVI = ['choáng ngợp', 'lạc lối', 'không biết bắt đầu từ đâu', 'overwhelmed'];
+let idx = 0;
+const elVI = document.getElementById('rw-vi');
+function rotateWord() {
+  if (!elVI) return;
+  elVI.classList.remove('fade-in');
+  elVI.classList.add('fade-out');
+  setTimeout(() => {
+    idx = (idx + 1) % wordsVI.length;
+    elVI.textContent = wordsVI[idx];
+    elVI.classList.remove('fade-out');
+    elVI.classList.add('fade-in');
+  }, 280);
+}
+setInterval(rotateWord, 2400);
 
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-q').addEventListener('click', () => {
