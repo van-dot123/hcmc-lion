@@ -27,6 +27,7 @@ nav {
 }
 .nav-logo { font-weight: 900; font-size: 17px; color: var(--black); text-decoration: none; }
 .nav-logo em { color: var(--orange); font-style: normal; }
+.nav-logo img { height: 28px; width: auto; display: block; }
 .nav-right { display: flex; align-items: center; gap: 12px; }
 
 /* LANG TOGGLE */
@@ -221,6 +222,11 @@ footer {
 .footer-logo em { color: var(--orange); font-style: normal; }
 footer p { font-size: 12px; }
 
+.nav-menu { display: flex; align-items: center; gap: 32px; }
+.nav-link { font-size: 13px; font-weight: 600; color: var(--black); text-decoration: none; opacity: 0.65; transition: opacity .15s; }
+.nav-link:hover { opacity: 1; }
+@media (max-width: 768px) { .nav-menu { display: none; } }
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   nav { padding: 16px 20px; }
@@ -238,7 +244,23 @@ footer p { font-size: 12px; }
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">HCMC <em>Lions</em></a>
+  <a class="nav-logo" href="#">
+    <img src="https://res.cloudinary.com/dcbythlhu/image/upload/v1779955402/LOGO_-_HCMCLIONS_-_%C4%91en-01_lb7gbj.svg" alt="HCMC Lions">
+  </a>
+  <div class="nav-menu">
+    <a class="nav-link" href="#audience">
+      <span class="vi-text">Đối tượng học viên</span>
+      <span class="kr-text">수강 대상</span>
+    </a>
+    <a class="nav-link" href="#about">
+      <span class="vi-text">Về khoá học</span>
+      <span class="kr-text">수업 소개</span>
+    </a>
+    <a class="nav-link" href="#showcase">
+      <span class="vi-text">Sản phẩm AI</span>
+      <span class="kr-text">AI 프로젝트</span>
+    </a>
+  </div>
   <div class="nav-right">
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('vi')">VI</button>
@@ -253,7 +275,10 @@ footer p { font-size: 12px; }
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-tag">Likelion Vietnam · AI For Builders · 2026</div>
+  <div class="hero-tag">
+    <span class="vi-text">HCMC Lions · AI For Builders · 2026</span>
+    <span class="kr-text">HCMC Lions · AI For Builders · 2026</span>
+  </div>
   <h1>
     <span class="vi-text">Bạn thấy choáng ngợp khi cố gắng tự học AI?</span>
     <span class="kr-text">혼자 AI를 공부하다가<br>막막함을 느낀 적 있으신가요?</span>
@@ -276,7 +301,7 @@ footer p { font-size: 12px; }
 </section>
 
 <!-- AUDIENCE -->
-<section class="section audience">
+<section class="section audience" id="audience">
   <div class="container">
     <p class="sec-label">
       <span class="vi-text">Dành cho ai?</span>
@@ -334,7 +359,7 @@ footer p { font-size: 12px; }
 </section>
 
 <!-- STEPS -->
-<section class="section steps-section">
+<section class="section steps-section" id="about">
   <div class="container">
     <p class="sec-label">
       <span class="vi-text">Tại sao lớp học này khác?</span>
