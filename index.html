@@ -115,7 +115,7 @@ body.vi .kr-text { display: none; }
 .cards-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
 .aud-card {
   background: #191919; border: 1px solid #2A2A2A; border-radius: 12px;
-  padding: 36px 28px 40px; text-align: left; position: relative; overflow: hidden;
+  padding: 36px 28px 40px; text-align: center; position: relative; overflow: hidden;
 }
 .aud-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0;
@@ -151,8 +151,8 @@ body.vi .kr-text { display: none; }
 .val-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
 .val-img:hover img { transform: scale(1.04); }
 
-.aud-card-img { width: 100%; aspect-ratio: 1/1; overflow: hidden; margin-bottom: 20px; border-radius: 8px; }
-.aud-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.aud-card-img { width: 100%; aspect-ratio: 4/3; overflow: hidden; margin-bottom: 20px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.aud-card-img img { width: 75%; height: 100%; object-fit: contain; object-position: center; display: block; mix-blend-mode: lighten; }
 
 /* SHOWCASE */
 .showcase-section { background: #F15A22; color: #fff; }
