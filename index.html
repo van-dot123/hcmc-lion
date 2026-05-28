@@ -221,6 +221,10 @@ footer {
 .footer-logo em { color: var(--orange); font-style: normal; }
 footer p { font-size: 12px; }
 
+.step-row { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.step-row.visible { opacity: 1; transform: translateY(0); }
+.step-n-wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.step-n-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); }
 .nav-menu { display: flex; align-items: center; gap: 32px; }
 .nav-link { font-size: 13px; font-weight: 600; color: var(--black); text-decoration: none; opacity: 0.65; transition: opacity .15s; }
 .nav-link:hover { opacity: 1; }
@@ -374,42 +378,33 @@ footer p { font-size: 12px; }
     </h2>
     <div class="steps-list">
       <div class="step-row">
-        <div class="step-n">01</div>
+        <div class="step-n-wrap">
+          <span class="step-n-label"><span class="vi-text">Bước</span><span class="kr-text">단계</span></span>
+          <div class="step-n">01</div>
+        </div>
         <div>
-          <h3>
-            <span class="vi-text">Giới hạn của AI chat</span>
-            <span class="kr-text">AI 채팅의 한계</span>
-          </h3>
-          <p>
-            <span class="vi-text">Copy, paste, hỏi đi hỏi lại trong cửa sổ chat — đây có thực sự là "tận dụng AI"? Những gì bạn làm được trong chatbox chỉ là bề nổi.</span>
-            <span class="kr-text">복사하고, 붙여넣고, 같은 질문을 반복하는 것 — 이게 정말 AI를 '활용'하는 걸까요? 채팅창 안에서 할 수 있는 건 겉핥기에 불과합니다.</span>
-          </p>
+          <h3><span class="vi-text">Nhận biết được giới hạn của AI chat</span><span class="kr-text">AI 채팅의 한계</span></h3>
+          <p><span class="vi-text">Copy, paste, hỏi đi hỏi lại trong cửa sổ chat — đây có thực sự là "tận dụng AI"? Những gì bạn làm được trong chatbox chỉ là bề nổi.</span><span class="kr-text">복사하고, 붙여넣고, 같은 질문을 반복하는 것 — 이게 정말 AI를 '활용'하는 걸까요? 채팅창 안에서 할 수 있는 건 겉핥기에 불과합니다.</span></p>
         </div>
       </div>
       <div class="step-row">
-        <div class="step-n">02</div>
+        <div class="step-n-wrap">
+          <span class="step-n-label"><span class="vi-text">Bước</span><span class="kr-text">단계</span></span>
+          <div class="step-n">02</div>
+        </div>
         <div>
-          <h3>
-            <span class="vi-text">Khi AI bước ra khỏi chatbox</span>
-            <span class="kr-text">AI가 채팅창 밖으로 나오면</span>
-          </h3>
-          <p>
-            <span class="vi-text">AI có thể đọc file, tạo tài liệu, tự động hoá quy trình — chạy trực tiếp trên máy tính của bạn. Build AI agent cho chính mình, không phải chỉ chat với chatbot.</span>
-            <span class="kr-text">파일 읽기, 문서 생성, 업무 자동화 — AI가 내 컴퓨터에서 직접 작동합니다. 챗봇이 아닌 나만의 AI 에이전트를 만드는 것, 그게 HCMC Lions의 핵심입니다.</span>
-          </p>
+          <h3><span class="vi-text">Học cách AI bước ra khỏi chatbox</span><span class="kr-text">AI가 채팅창 밖으로 나오면</span></h3>
+          <p><span class="vi-text">AI có thể đọc file, tạo tài liệu, tự động hoá quy trình — chạy trực tiếp trên máy tính của bạn. Build AI agent cho chính mình, không phải chỉ chat với chatbot.</span><span class="kr-text">파일 읽기, 문서 생성, 업무 자동화 — AI가 내 컴퓨터에서 직접 작동합니다. 챗봇이 아닌 나만의 AI 에이전트를 만드는 것, 그게 HCMC Lions의 핵심입니다.</span></p>
         </div>
       </div>
       <div class="step-row">
-        <div class="step-n">03</div>
+        <div class="step-n-wrap">
+          <span class="step-n-label"><span class="vi-text">Bước</span><span class="kr-text">단계</span></span>
+          <div class="step-n">03</div>
+        </div>
         <div>
-          <h3>
-            <span class="vi-text">Không khó — nếu làm cùng nhau</span>
-            <span class="kr-text">함께하면 어렵지 않습니다</span>
-          </h3>
-          <p>
-            <span class="vi-text">HCMC Lions hoạt động theo mô hình co-studying. Cùng học, cùng brainstorm, cùng build MVP AI dưới sự hướng dẫn của mentor thực chiến.</span>
-            <span class="kr-text">HCMC Lions는 코스터디 방식으로 운영됩니다. 함께 배우고, 함께 브레인스토밍하고, 실전 멘토의 지도 아래 AI MVP를 함께 만들어갑니다.</span>
-          </p>
+          <h3><span class="vi-text">Không khó — nếu làm cùng nhau</span><span class="kr-text">함께하면 어렵지 않습니다</span></h3>
+          <p><span class="vi-text">HCMC Lions hoạt động theo mô hình co-studying. Cùng học, cùng brainstorm, cùng build MVP AI dưới sự hướng dẫn của mentor thực chiến.</span><span class="kr-text">HCMC Lions는 코스터디 방식으로 운영됩니다. 함께 배우고, 함께 브레인스토밍하고, 실전 멘토의 지도 아래 AI MVP를 함께 만들어갑니다.</span></p>
         </div>
       </div>
     </div>
@@ -656,6 +651,17 @@ footer p { font-size: 12px; }
     setTimeout(()=>{idx=(idx+1)%words.length;el.textContent=words[idx];el.classList.remove('rw-out');el.classList.add('rw-in');},220);
   },2400);
 })();
+
+const stepObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      const rows = document.querySelectorAll('.step-row');
+      const i = Array.from(rows).indexOf(entry.target);
+      setTimeout(() => entry.target.classList.add('visible'), i * 180);
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.step-row').forEach(s => stepObserver.observe(s));
 
 function setLang(lang) {
   document.body.className = lang;
