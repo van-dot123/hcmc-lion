@@ -253,7 +253,6 @@ footer p { font-size: 12px; }
 
 <!-- HERO -->
 <section class="hero" style="position:relative; overflow:hidden;">
-  <div class="chaos" id="chaos-layer"></div>
   <h1>
     <span class="vi-text">
       <span style="display:block;">Bạn thấy <span class="hero-highlight rw-in" id="rw-vi">choáng ngợp</span></span>
@@ -621,53 +620,6 @@ footer p { font-size: 12px; }
 </footer>
 
 <script>
-(function(){
-  const tags=[
-    {text:'Claude Code',sz:'13px',op:0.45},{text:'Prompt Engineering',sz:'11px',op:0.38},
-    {text:'AI Agent',sz:'15px',op:0.5},{text:'LLM',sz:'22px',op:0.3},
-    {text:'n8n',sz:'18px',op:0.38},{text:'RAG',sz:'13px',op:0.42},
-    {text:'Vibe Coding',sz:'16px',op:0.45},{text:'MCP',sz:'20px',op:0.28},
-    {text:'ChatGPT',sz:'14px',op:0.48},{text:'Fine-tuning',sz:'11px',op:0.32},
-    {text:'Vector DB',sz:'12px',op:0.38},{text:'Automation',sz:'17px',op:0.42},
-    {text:'GPT-4o',sz:'13px',op:0.35},{text:'Cursor',sz:'15px',op:0.45},
-    {text:'Gemini',sz:'16px',op:0.38},{text:'Bolt.new',sz:'14px',op:0.4},
-    {text:'Copilot',sz:'12px',op:0.32},{text:'Ollama',sz:'13px',op:0.38},
-  ];
-  const positions=[
-    {left:'8%',top:'15%'},{left:'72%',top:'12%'},
-    {left:'6%',top:'30%'},{left:'74%',top:'28%'},
-    {left:'9%',top:'45%'},{left:'71%',top:'43%'},
-    {left:'7%',top:'60%'},{left:'73%',top:'58%'},
-    {left:'10%',top:'74%'},{left:'70%',top:'72%'},
-    {left:'8%',top:'86%'},{left:'72%',top:'84%'},
-    {left:'18%',top:'8%'},{left:'60%',top:'6%'},
-    {left:'20%',top:'90%'},{left:'58%',top:'88%'},
-    {left:'12%',top:'22%'},{left:'68%',top:'20%'},
-  ];
-  const c=document.getElementById('chaos-layer');
-  if(!c) return;
-  tags.forEach((tag,i)=>{
-    const pos=positions[i%positions.length];
-    const dur=(1.5+Math.random()*1.5).toFixed(1)+'s';
-    const del='-'+(Math.random()*5).toFixed(1)+'s';
-    const tx1=(Math.random()>.5?'':'-')+(20+Math.random()*30).toFixed(0)+'px';
-    const tx2=(Math.random()>.5?'':'-')+(15+Math.random()*25).toFixed(0)+'px';
-    const rot=(Math.random()*6-3).toFixed(1)+'deg';
-    const s=document.createElement('span');
-    s.className='ctag'; s.textContent=tag.text;
-    s.style.cssText=`left:${pos.left};top:${pos.top};--dur:${dur};--del:${del};--op:${tag.op};--sz:${tag.sz};--tx1:${tx1};--tx2:${tx2};--rot:${rot}`;
-    c.appendChild(s);
-  });
-  const words=['choáng ngợp','lạc lối','overwhelmed'];
-  let idx=0;
-  const el=document.getElementById('rw-vi');
-  if(!el) return;
-  setInterval(()=>{
-    el.classList.remove('rw-in');el.classList.add('rw-out');
-    setTimeout(()=>{idx=(idx+1)%words.length;el.textContent=words[idx];el.classList.remove('rw-out');el.classList.add('rw-in');},220);
-  },2400);
-})();
-
 function setLang(lang) {
   document.body.className = lang;
   document.querySelectorAll('.lang-btn').forEach(btn => {
