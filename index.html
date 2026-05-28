@@ -620,6 +620,17 @@ footer p { font-size: 12px; }
 </footer>
 
 <script>
+(function(){
+  const words=['choáng ngợp','lạc lối','overwhelmed'];
+  let idx=0;
+  const el=document.getElementById('rw-vi');
+  if(!el) return;
+  setInterval(()=>{
+    el.classList.remove('rw-in');el.classList.add('rw-out');
+    setTimeout(()=>{idx=(idx+1)%words.length;el.textContent=words[idx];el.classList.remove('rw-out');el.classList.add('rw-in');},220);
+  },2400);
+})();
+
 function setLang(lang) {
   document.body.className = lang;
   document.querySelectorAll('.lang-btn').forEach(btn => {
