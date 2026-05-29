@@ -17,7 +17,7 @@ export function TargetSection() {
       img: "/images/target-1.png",
       title: "Người đi làm muốn dùng AI thực sự",
       desc: "Bạn đã thử ChatGPT nhưng vẫn chưa thấy nó thay đổi được công việc hàng ngày.",
-      quote: ""Tôi biết AI mạnh nhưng tôi chưa biết dùng nó cho việc của mình."",
+      quote: "Tôi biết AI mạnh nhưng tôi chưa biết dùng nó cho việc của mình.",
     },
     {
       n: "02",
