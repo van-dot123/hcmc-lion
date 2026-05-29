@@ -24,14 +24,14 @@ export function TargetSection() {
       img: "/images/target-2.png",
       title: "Freelancer & side-hustler",
       desc: "Bạn muốn tự động hoá một phần công việc để có thêm thời gian cho dự án cá nhân.",
-      quote: ""Nếu AI làm được việc này, tôi có thể nhận thêm 2 client nữa."",
+      quote: "Nếu AI làm được việc này, tôi có thể nhận thêm 2 client nữa.",
     },
     {
       n: "03",
       img: "/images/target-3.png",
       title: "Builder muốn ra sản phẩm đầu tiên",
       desc: "Ý tưởng thì có, nhưng không biết bắt đầu từ đâu và không muốn học code từ đầu.",
-      quote: ""Tôi muốn build cái gì đó thật không chỉ xem tutorial."",
+      quote: "Tôi muốn build cái gì đó thật không chỉ xem tutorial.",
     },
   ];
 
