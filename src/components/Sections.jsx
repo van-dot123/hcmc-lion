@@ -9,34 +9,6 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
-// ── Numbers bar ───────────────────────────────────────────────────────────────
-export function NumbersBar() {
-  const { lang } = useLang();
-  const vi = lang === "vi";
-  const stats = [
-    { num: "4", suffix: vi ? "주" : "주", label: vi ? "Tuần hoàn thành 1 sản phẩm AI" : "주 완성 과정" },
-    { num: "0", suffix: "", label: vi ? "Dòng code cần viết tay" : "코딩 지식 필요 없음" },
-    { num: "2", suffix: "h", label: vi ? "Mỗi tuần — đủ để build thật" : "매주 집중 2시간" },
-    { num: "20", suffix: vi ? " slots" : "명", label: vi ? "Học viên — cohort nhỏ" : "소규모 코호트" },
-  ];
-  return (
-    <div style={{ background: "var(--white)", borderTop: "1px solid var(--gray-line)", borderBottom: "1px solid var(--gray-line)", padding: "56px 40px" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
-        {stats.map((s, i) => (
-          <motion.div key={i} {...fadeUp(i * 0.08)}
-            style={{ textAlign: "center", padding: "0 20px", borderRight: i < 3 ? "1px solid var(--gray-line)" : "none" }}
-          >
-            <div style={{ fontSize: "clamp(36px,4vw,56px)", fontWeight: 700, letterSpacing: -2, lineHeight: 1, color: "var(--black)" }}>
-              {s.num}<span style={{ color: "var(--o)" }}>{s.suffix}</span>
-            </div>
-            <div style={{ fontSize: 12, color: "var(--muted)", marginTop: 8, lineHeight: 1.5 }}>{s.label}</div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 // ── Why section ───────────────────────────────────────────────────────────────
 export function WhySection() {
   const { lang } = useLang();
@@ -107,57 +79,6 @@ export function WhySection() {
               <div>
                 <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 3 }}>{p.title}</div>
                 <div style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.6 }}>{p.desc}</div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Curriculum ────────────────────────────────────────────────────────────────
-export function Curriculum() {
-  const { lang } = useLang();
-  const vi = lang === "vi";
-  const weeks = [
-    { n: "01", title: "AI Mindset", desc: vi ? "Tư duy người build. Xác định vấn đề AI có thể giải." : "빌더의 사고방식. AI로 해결할 나만의 문제 정의.", output: vi ? "Problem statement cá nhân" : "나만의 문제 정의서" },
-    { n: "02", title: "Build with Claude", desc: vi ? "Từ chat sang agent. Setup AI chạy trực tiếp trên máy." : "채팅에서 에이전트로. AI를 직접 작동시키기.", output: vi ? "AI agent đầu tiên đang chạy" : "첫 AI 에이전트 작동" },
-    { n: "03", title: "Optimize & Ship", desc: vi ? "Làm cho nó chạy thực trong công việc hàng ngày." : "실제 업무에서 작동하도록 다듬기.", output: vi ? "Workflow AI hoạt động thực tế" : "실무 적용 AI 워크플로우" },
-    { n: "04", title: "Demo Day", desc: vi ? "Trình bày sản phẩm. Feedback từ mentor và 20 peers." : "결과물 발표. 멘토와 동료 피드백.", output: vi ? "MVP + 20 đồng đội" : "MVP + 20명의 동료" },
-  ];
-  return (
-    <section style={{ padding: "100px 40px", background: "var(--gray-bg)" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 48, flexWrap: "wrap", gap: 20 }}>
-          <div>
-            <motion.div {...fadeUp(0)} style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 12 }}>
-              {vi ? "Chương trình học" : "커리큘럼"}
-            </motion.div>
-            <motion.h2 {...fadeUp(0.1)} style={{ fontSize: "clamp(28px,3.5vw,48px)", fontWeight: 700, letterSpacing: -1.5, lineHeight: 1.1 }}>
-              {vi ? "4 tuần. 1 sản phẩm thật." : "4주. 진짜 결과물 1개."}
-            </motion.h2>
-          </div>
-          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-            {["📍 Offline · HCMC", vi ? "📅 Thứ 7 · 2h" : "📅 토요일 · 2h", "👥 Max 20"].map((p) => (
-              <span key={p} style={{ background: "var(--white)", border: "1px solid var(--gray-line)", borderRadius: 100, padding: "6px 14px", fontSize: 11, fontWeight: 600, color: "var(--muted)" }}>{p}</span>
-            ))}
-          </div>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 12 }}>
-          {weeks.map((w, i) => (
-            <motion.div key={i} {...fadeUp(0.08 * i)}
-              style={{ background: "var(--white)", border: "1px solid var(--gray-line)", borderRadius: 14, padding: "28px 24px", position: "relative", overflow: "hidden", transition: "border-color .2s" }}
-              whileHover={{ borderColor: "rgba(241,90,34,0.4)" }}
-            >
-              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "var(--gray-line)", borderRadius: "14px 14px 0 0", transition: ".2s" }} />
-              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--muted2)", marginBottom: 10 }}>WEEK</div>
-              <div style={{ fontSize: 32, fontWeight: 700, letterSpacing: -2, color: "var(--black)", lineHeight: 1, marginBottom: 6 }}>{w.n}</div>
-              <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 8 }}>{w.title}</div>
-              <div style={{ fontSize: 12, color: "var(--muted)", lineHeight: 1.7, marginBottom: 16 }}>{w.desc}</div>
-              <div style={{ background: "rgba(241,90,34,0.07)", border: "1px solid rgba(241,90,34,0.15)", borderRadius: 8, padding: "9px 12px" }}>
-                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: 1, textTransform: "uppercase", color: "var(--o)", marginBottom: 3 }}>Output</div>
-                <div style={{ fontSize: 11, color: "rgba(17,17,17,0.7)", lineHeight: 1.4 }}>{w.output}</div>
               </div>
             </motion.div>
           ))}
