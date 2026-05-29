@@ -30,14 +30,9 @@ export function WhySection() {
       desc: vi ? "HCMC Lions là co-studying: cùng học, cùng build, cùng ra sản phẩm thật." : "HCMC Lions는 코스터디입니다. 함께 만들고, 함께 결과물을 냅니다.",
     },
   ];
-  const painPoints = [
-    { icon: "📺", title: vi ? "YouTube không đủ" : "유튜브만으론 부족하다", desc: vi ? "Xem xong vẫn không biết áp dụng vào thực tế." : "봐도 내 상황에 어떻게 적용할지 모르겠습니다." },
-    { icon: "🧩", title: vi ? "Tool mới liên tục" : "끝없는 새 툴", desc: vi ? "Học xong tool này thì tool khác tốt hơn lại ra." : "하나 배우면 더 좋은 툴이 계속 나옵니다." },
-    { icon: "🚀", title: vi ? "Muốn build nhưng không biết bắt đầu từ đâu" : "시작을 모르겠다", desc: vi ? "Ý tưởng có, plan xong. Nhưng vẫn là blank page." : "아이디어도 있지만 첫 걸음이 막막합니다." },
-  ];
   return (
     <section style={{ padding: "100px 40px", background: "var(--white)" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div>
           <motion.div {...fadeUp(0)} style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 16 }}>
             {vi ? "Tại sao khác biệt?" : "왜 다른가요?"}
@@ -56,29 +51,6 @@ export function WhySection() {
               <div>
                 <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>{s.title}</div>
                 <div style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.75 }}>{s.desc}</div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-        <div>
-          <motion.div {...fadeUp(0.15)}
-            style={{ background: "var(--gray-bg)", border: "1px solid var(--gray-line)", borderRadius: 16, padding: 28, marginBottom: 16 }}
-          >
-            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "var(--muted)", marginBottom: 14 }}>
-              {vi ? "😤 Bạn có đang ở đây không?" : "😤 혹시 이런 상황?"}
-            </div>
-            <p style={{ fontSize: 17, color: "var(--black)", lineHeight: 1.65, fontStyle: "italic" }}>
-              {vi ? <>"AI viết bản nháp, nhưng cuối cùng tôi vẫn phải <em style={{ color: "var(--o)", fontStyle: "normal", fontWeight: 700 }}>viết lại toàn bộ.</em>"</> : <>"AI가 초안을 써줬는데, 결국 제가 <em style={{ color: "var(--o)", fontStyle: "normal", fontWeight: 700 }}>다 다시 썼어요.</em>"</>}
-            </p>
-          </motion.div>
-          {painPoints.map((p, i) => (
-            <motion.div key={i} {...fadeUp(0.12 * i)}
-              style={{ display: "flex", alignItems: "flex-start", gap: 12, background: "var(--gray-bg)", border: "1px solid var(--gray-line)", borderRadius: 12, padding: "14px 16px", marginBottom: 10 }}
-            >
-              <span style={{ fontSize: 20, flexShrink: 0, marginTop: 1 }}>{p.icon}</span>
-              <div>
-                <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 3 }}>{p.title}</div>
-                <div style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.6 }}>{p.desc}</div>
               </div>
             </motion.div>
           ))}
