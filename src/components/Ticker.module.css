@@ -1,0 +1,27 @@
+.strip {
+  border-top: 1px solid var(--gray-line);
+  border-bottom: 1px solid var(--gray-line);
+  overflow: hidden; position: relative;
+  background: var(--white);
+}
+.track {
+  display: flex; width: max-content;
+  animation: ticker 32s linear infinite;
+}
+.track:hover { animation-play-state: paused; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 16px 28px; border-right: 1px solid var(--gray-line);
+  white-space: nowrap; cursor: default;
+  transition: background 0.15s;
+}
+.item:hover { background: var(--gray-bg); }
+.dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.text { font-size: 13px; font-weight: 400; color: var(--muted); }
+.text strong { color: var(--black); font-weight: 700; }
+.fadeLeft, .fadeRight {
+  position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+}
+.fadeLeft { left: 0; background: linear-gradient(90deg, var(--white) 30%, transparent); }
+.fadeRight { right: 0; background: linear-gradient(-90deg, var(--white) 30%, transparent); }

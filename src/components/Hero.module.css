@@ -1,0 +1,84 @@
+.hero {
+  min-height: 100vh; padding: 140px 40px 100px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden; background: var(--white);
+}
+.bgOrb {
+  position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
+  width: 900px; height: 600px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(241,90,34,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.bgGrid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--gray-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gray-line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.45; pointer-events: none;
+}
+.inner {
+  position: relative; z-index: 2;
+  max-width: 1100px; margin: 0 auto; width: 100%;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(241,90,34,0.3);
+  background: rgba(241,90,34,0.06);
+  color: var(--o); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 100px; margin-bottom: 32px;
+}
+.dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--o);
+  animation: blink 1.5s infinite; flex-shrink: 0;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+
+.h1 {
+  font-size: clamp(40px, 6.5vw, 84px);
+  font-weight: 700; letter-spacing: -3px; line-height: 1.0;
+  margin-bottom: 28px;
+}
+.h1 em { color: var(--o); font-style: normal; }
+.dim { color: var(--muted2); }
+
+.sub {
+  font-size: clamp(15px, 1.7vw, 18px); color: var(--muted);
+  line-height: 1.85; max-width: 520px; margin-bottom: 44px;
+}
+.actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+.btnMain {
+  background: var(--o); color: #fff; padding: 15px 36px;
+  border-radius: 8px; font-weight: 700; font-size: 15px;
+  text-decoration: none; transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 6px; letter-spacing: -0.3px;
+}
+.btnMain:hover { background: var(--od); transform: translateY(-2px); }
+.btnGhost {
+  color: var(--muted); font-size: 14px; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--gray-line); padding: 14px 24px; border-radius: 8px;
+  transition: all 0.15s;
+}
+.btnGhost:hover { color: var(--black); border-color: var(--muted2); }
+
+.proof { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.avatars { display: flex; }
+.av {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 2.5px solid var(--white);
+  font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.9);
+  display: flex; align-items: center; justify-content: center;
+}
+.proofText { font-size: 13px; color: var(--muted); }
+.proofText strong { color: var(--black); font-weight: 700; }
+.divider { width: 1px; height: 28px; background: var(--gray-line); }
+.stat { display: flex; flex-direction: column; gap: 2px; }
+.statNum { font-size: 20px; font-weight: 700; color: var(--black); letter-spacing: -0.5px; }
+.statLabel { font-size: 10px; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; }
+
+@media (max-width: 768px) {
+  .hero { padding: 120px 20px 80px; }
+  .h1 { letter-spacing: -2px; }
+}
