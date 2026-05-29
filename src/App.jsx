@@ -3,7 +3,7 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Ticker from "./components/Ticker";
 import PortfolioCarousel from "./components/PortfolioCarousel";
-import { WhySection, EarlyAccess, FAQ } from "./components/Sections";
+import { TargetSection, WhySection, EarlyAccess, FAQ } from "./components/Sections";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -14,6 +14,7 @@ export default function App() {
         <Hero />
         <Ticker />
         <PortfolioCarousel />
+        <TargetSection />
         <WhySection />
         <EarlyAccess />
         <FAQ />

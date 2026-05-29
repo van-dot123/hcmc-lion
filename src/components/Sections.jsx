@@ -9,6 +9,119 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
+// ── Target Section ────────────────────────────────────────────────────────────
+export function TargetSection() {
+  const cards = [
+    {
+      n: "01",
+      img: "/images/target-1.png",
+      title: "Người đi làm muốn dùng AI thực sự",
+      desc: "Bạn đã thử ChatGPT nhưng vẫn chưa thấy nó thay đổi được công việc hàng ngày.",
+      quote: ""Tôi biết AI mạnh — nhưng tôi chưa biết dùng nó cho việc của mình."",
+    },
+    {
+      n: "02",
+      img: "/images/target-2.png",
+      title: "Freelancer & side-hustler",
+      desc: "Bạn muốn tự động hoá một phần công việc để có thêm thời gian cho dự án cá nhân.",
+      quote: ""Nếu AI làm được việc này, tôi có thể nhận thêm 2 client nữa."",
+    },
+    {
+      n: "03",
+      img: "/images/target-3.png",
+      title: "Builder muốn ra sản phẩm đầu tiên",
+      desc: "Ý tưởng thì có, nhưng không biết bắt đầu từ đâu — và không muốn học code từ đầu.",
+      quote: ""Tôi muốn build cái gì đó thật — không chỉ xem tutorial."",
+    },
+  ];
+
+  return (
+    <section style={{ padding: "100px 40px", background: "#F8F7F5" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <motion.div {...fadeUp(0)} style={{ textAlign: "center", fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 14 }}>
+          DÀNH CHO AI?
+        </motion.div>
+        <motion.h2 {...fadeUp(0.08)} style={{ textAlign: "center", fontSize: "clamp(28px,3.5vw,48px)", fontWeight: 700, letterSpacing: -1.5, lineHeight: 1.1, marginBottom: 48 }}>
+          Bạn có phải là người này?
+        </motion.h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 }}>
+          {cards.map((c, i) => (
+            <TargetCard key={i} card={c} delay={i * 0.1} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TargetCard({ card, delay }) {
+  const [hovered, setHovered] = React.useState(false);
+  return (
+    <motion.div
+      {...fadeUp(delay)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        position: "relative",
+        height: 340,
+        borderRadius: 20,
+        overflow: "hidden",
+        background: "#111",
+        cursor: "default",
+        transform: hovered ? "translateY(-6px)" : "translateY(0)",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        boxShadow: hovered ? "0 20px 40px rgba(0,0,0,0.25)" : "0 4px 16px rgba(0,0,0,0.12)",
+      }}
+    >
+      {/* Orange top border on hover */}
+      <div style={{
+        position: "absolute", top: 0, left: 0, right: 0, height: 3,
+        background: "var(--o)",
+        opacity: hovered ? 1 : 0,
+        transition: "opacity 0.3s ease",
+        zIndex: 3,
+        borderRadius: "20px 20px 0 0",
+      }} />
+
+      {/* Image */}
+      <img
+        src={card.img}
+        alt={card.title}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.7 }}
+      />
+
+      {/* Gradient overlay */}
+      <div style={{
+        position: "absolute", inset: 0,
+        background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.1) 100%)",
+      }} />
+
+      {/* Bottom content */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "0 24px 24px", zIndex: 2 }}>
+        {/* Extra content slides up on hover */}
+        <div style={{
+          overflow: "hidden",
+          maxHeight: hovered ? 120 : 0,
+          opacity: hovered ? 1 : 0,
+          transform: hovered ? "translateY(0)" : "translateY(12px)",
+          transition: "max-height 0.35s ease, opacity 0.3s ease, transform 0.35s ease",
+          marginBottom: hovered ? 12 : 0,
+        }}>
+          <p style={{ fontSize: 13, color: "rgba(255,255,255,0.75)", lineHeight: 1.65, marginBottom: 8 }}>{card.desc}</p>
+          <p style={{ fontSize: 12, color: "var(--o)", fontStyle: "italic", lineHeight: 1.55 }}>{card.quote}</p>
+        </div>
+
+        {/* Number */}
+        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: 1.5, color: "rgba(255,255,255,0.4)", marginBottom: 4 }}>
+          {card.n}
+        </div>
+        {/* Title always visible */}
+        <div style={{ fontSize: 16, fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>{card.title}</div>
+      </div>
+    </motion.div>
+  );
+}
+
 // ── Why section ───────────────────────────────────────────────────────────────
 export function WhySection() {
   const { lang } = useLang();
