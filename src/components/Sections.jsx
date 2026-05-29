@@ -130,16 +130,16 @@ export function WhySection() {
     {
       n: "01",
       title: vi ? "Giới hạn của AI chat" : "AI 채팅의 한계",
-      desc: vi ? "Copy, paste, hỏi lại — đây chưa phải tận dụng AI. Chatbox chỉ là bề nổi." : "복사, 붙여넣기, 반복 질문 — 이건 진짜 AI 활용이 아닙니다.",
+      desc: vi ? "Copy, paste, hỏi lại - đây chưa phải tận dụng AI. Chatbox chỉ là bề nổi." : "복사, 붙여넣기, 반복 질문 - 이건 진짜 AI 활용이 아닙니다.",
     },
     {
       n: "02",
       title: vi ? "AI bước ra ngoài chatbox" : "AI가 채팅창 밖으로",
-      desc: vi ? "Đọc file, tạo tài liệu, build app — AI chạy trực tiếp trên máy tính của bạn." : "파일 읽기, 앱 제작, 자동화 — AI가 내 컴퓨터에서 직접 작동합니다.",
+      desc: vi ? "Đọc file, tạo tài liệu, build app - AI chạy trực tiếp trên máy tính của bạn." : "파일 읽기, 앱 제작, 자동화 - AI가 내 컴퓨터에서 직접 작동합니다.",
     },
     {
       n: "03",
-      title: vi ? "Không khó — khi làm cùng nhau" : "함께하면 어렵지 않습니다",
+      title: vi ? "Không khó - khi làm cùng nhau" : "함께하면 어렵지 않습니다",
       desc: vi ? "HCMC Lions là co-studying: cùng học, cùng build, cùng ra sản phẩm thật." : "HCMC Lions는 코스터디입니다. 함께 만들고, 함께 결과물을 냅니다.",
     },
   ];
@@ -178,8 +178,8 @@ export function EarlyAccess() {
   const { lang } = useLang();
   const vi = lang === "vi";
   const benefits = vi
-    ? ["Tiết kiệm 500,000đ so với giá chính thức", "Vote nội dung curriculum theo nhu cầu thực", "Cohort 20 người — mentor hướng dẫn trực tiếp", "Vào cộng đồng Discord builders HCMC"]
-    : ["정가 대비 500,000đ 할인", "커리큘럼 투표 참여권", "20명 소규모 — 멘토 1:1 지원", "HCMC 빌더 Discord 커뮤니티 입장"];
+    ? ["Tiết kiệm 500,000đ so với giá chính thức", "Vote nội dung curriculum theo nhu cầu thực", "Cohort 20 người - mentor hướng dẫn trực tiếp", "Vào cộng đồng Discord builders HCMC"]
+    : ["정가 대비 500,000đ 할인", "커리큘럼 투표 참여권", "20명 소규모 - 멘토 1:1 지원", "HCMC 빌더 Discord 커뮤니티 입장"];
 
   return (
     <section id="early" style={{ padding: "100px 40px", background: "var(--white)", position: "relative", overflow: "hidden" }}>
