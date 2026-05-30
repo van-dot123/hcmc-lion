@@ -301,7 +301,7 @@ function HowTeamVisual() {
       overflow: "hidden", border: "1px solid var(--gray-line)",
     }}>
       <img
-        src="https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1780138405/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2026-05-30_lu%CC%81c_17.53.01_anet2r.png"
+        src="https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1780138614/section4_img1_vioslh.png"
         alt="Co-studying cohort"
         style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
       />
