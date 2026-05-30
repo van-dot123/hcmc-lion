@@ -375,63 +375,69 @@ export function KoreaCommunity() {
   const vi = lang === "vi";
 
   return (
-    <section style={{ padding: "100px 40px", background: "var(--gray-bg)" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <motion.div {...fadeUp(0)} style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 16 }}>
+    <section style={{ padding: "100px 40px", background: "#111", color: "#fff", position: "relative", overflow: "hidden" }}>
+      <div style={{ position: "absolute", top: "-30%", right: "-15%", width: 700, height: 600, borderRadius: "50%", background: "radial-gradient(ellipse,rgba(241,90,34,0.15) 0%,transparent 60%)", pointerEvents: "none" }} />
+      <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 2 }}>
+        <motion.div {...fadeUp(0)} style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 16, display: "inline-flex", alignItems: "center", gap: 10 }}>
+          <span style={{ display: "inline-block", width: 28, height: 1, background: "var(--o)" }} />
           {vi ? "Chúng tôi đã làm điều này ở Seoul" : "서울에서 이미 했습니다"}
         </motion.div>
-        <motion.h2 {...fadeUp(0.1)} style={{ fontSize: "clamp(28px,3.5vw,48px)", fontWeight: 700, letterSpacing: -1.5, lineHeight: 1.1, marginBottom: 12 }}>
-          {vi ? "Và nó thực sự hiệu quả." : "그리고 정말 효과적이었습니다."}
+        <motion.h2 {...fadeUp(0.1)} style={{ fontSize: "clamp(28px,3.5vw,48px)", fontWeight: 700, letterSpacing: -1.5, lineHeight: 1.1, marginBottom: 12, color: "#fff" }}>
+          {vi ? <>Và nó thực sự <em style={{ color: "var(--o)", fontStyle: "normal" }}>hiệu quả.</em></> : <>그리고 정말 <em style={{ color: "var(--o)", fontStyle: "normal" }}>효과적이었습니다.</em></>}
         </motion.h2>
-        <motion.p {...fadeUp(0.18)} style={{ fontSize: 15, color: "var(--muted)", lineHeight: 1.75, marginBottom: 48, maxWidth: 540 }}>
+        <motion.p {...fadeUp(0.18)} style={{ fontSize: 15, color: "#9A9890", lineHeight: 1.75, marginBottom: 48, maxWidth: 540 }}>
           {vi
             ? "Cùng mô hình, cùng tinh thần — học viên Seoul đã tự build sản phẩm thật trong 4 tuần."
             : "같은 모델, 같은 정신으로 — 서울 수강생들은 4주 만에 실제 제품을 만들었습니다."}
         </motion.p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start" }}>
-          <motion.div {...fadeUp(0.2)}>
+        <div style={{ display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: 32, alignItems: "start" }}>
+          <motion.div {...fadeUp(0.2)} style={{ display: "grid", gap: 10 }}>
+            <div style={{ aspectRatio: "16/9", borderRadius: 12, overflow: "hidden", border: "0.5px solid #2a2a2a" }}>
+              <img src="https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1780139004/section4_img3_u3gu9b.png" alt="Demo Day Seoul" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-              {["Demo Day Seoul", "Co-study session", "MVP showcase", "Graduation day"].map((label, i) => (
-                <div key={i} style={{ borderRadius: 10, background: "#E0DDD8", border: "1px solid var(--gray-line)", aspectRatio: i === 0 ? "16/9" : "4/3", gridColumn: i === 0 ? "1 / -1" : "auto", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ fontSize: 12, color: "var(--muted)", fontWeight: 600 }}>{label}</span>
-                </div>
-              ))}
+              <div style={{ aspectRatio: "1/1", borderRadius: 12, overflow: "hidden", border: "0.5px solid #2a2a2a" }}>
+                <img src="https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1780138999/section4_img4_zeo4cg.png" alt="Co-study" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              </div>
+              <div style={{ aspectRatio: "1/1", borderRadius: 12, overflow: "hidden", border: "0.5px solid #2a2a2a" }}>
+                <img src="https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1780138998/section4_img2_vufetl.png" alt="MVP showcase" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              </div>
             </div>
           </motion.div>
 
-          <motion.div {...fadeUp(0.28)}>
-            <div style={{ background: "var(--white)", border: "1px solid var(--gray-line)", borderLeft: "3px solid var(--o)", borderRadius: "0 12px 12px 0", padding: "20px 20px 20px 22px", marginBottom: 20 }}>
-              <p style={{ fontSize: 14, fontStyle: "italic", lineHeight: 1.75, color: "var(--black)", marginBottom: 8 }}>
+          <motion.div {...fadeUp(0.28)} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <div style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid #2a2a2a", borderLeft: "3px solid var(--o)", borderRadius: "0 12px 12px 0", padding: "20px 20px 18px 22px" }}>
+              <p style={{ fontSize: 14, fontStyle: "italic", lineHeight: 1.75, color: "#e8e8ec", marginBottom: 10 }}>
                 {vi
                   ? '"Trước lớp học tôi chỉ biết dùng ChatGPT để viết email. Sau 4 tuần tôi đã tự build tool tổng hợp báo cáo cho cả team — không viết một dòng code nào."'
                   : '"수업 전에는 이메일 쓸 때만 ChatGPT를 썼어요. 4주 후에는 코드 한 줄 없이 팀 전체 보고서를 자동화하는 툴을 만들었습니다."'}
               </p>
-              <p style={{ fontSize: 12, color: "var(--muted)" }}>— Kim Jiyeon · Seoul Cohort 01 · Marketing Manager</p>
+              <p style={{ fontSize: 12, color: "#9A9890" }}>— Kim Jiyeon · Seoul Cohort 01 · Marketing Manager</p>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10, marginBottom: 24 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10 }}>
               {[
-                { n: "47", l: vi ? "Học viên Seoul" : "서울 수강생" },
-                { n: "38", l: vi ? "MVP đã ra mắt" : "출시된 MVP" },
-                { n: "4.9", l: vi ? "Đánh giá / 5" : "평점 / 5" },
+                { n: "47", l: vi ? "Học viên Seoul" : "서울 수강생", acc: false },
+                { n: "38", l: vi ? "MVP đã ra mắt" : "출시된 MVP", acc: false },
+                { n: "4.9", l: vi ? "Đánh giá / 5" : "평점 / 5", acc: true },
               ].map((s, i) => (
-                <div key={i} style={{ background: "var(--white)", border: "1px solid var(--gray-line)", borderRadius: 10, padding: "14px 12px", textAlign: "center" }}>
-                  <div style={{ fontSize: 24, fontWeight: 700, letterSpacing: -1, color: i === 2 ? "var(--o)" : "var(--black)" }}>{s.n}</div>
-                  <div style={{ fontSize: 11, color: "var(--muted)", marginTop: 3 }}>{s.l}</div>
+                <div key={i} style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid #2a2a2a", borderRadius: 10, padding: "16px 12px", textAlign: "center" }}>
+                  <div style={{ fontSize: 26, fontWeight: 700, letterSpacing: -1, color: s.acc ? "var(--o)" : "#fff", lineHeight: 1 }}>{s.n}</div>
+                  <div style={{ fontSize: 10, color: "#9A9890", marginTop: 6, letterSpacing: 0.3, textTransform: "uppercase", fontWeight: 600 }}>{s.l}</div>
                 </div>
               ))}
             </div>
 
-            <a
+            
               href="https://likelion.net/b2b"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "var(--black)", color: "#fff", padding: "14px 24px", borderRadius: 8, fontWeight: 700, fontSize: 14, textDecoration: "none", width: "100%", boxSizing: "border-box" }}
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "var(--o)", color: "#fff", padding: "14px 24px", borderRadius: 8, fontWeight: 700, fontSize: 14, textDecoration: "none", width: "100%", boxSizing: "border-box" }}
             >
               {vi ? "Xem lớp học ở Seoul →" : "서울 클래스 보기 →"}
             </a>
-            <p style={{ fontSize: 11, color: "var(--muted2)", textAlign: "center", marginTop: 8 }}>
+            <p style={{ fontSize: 11, color: "#6e6e76", textAlign: "center" }}>
               likelion.net · {vi ? "Chương trình gốc từ Hàn Quốc" : "한국 원본 프로그램"}
             </p>
           </motion.div>
