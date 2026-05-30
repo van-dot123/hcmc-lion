@@ -477,8 +477,8 @@ export function EarlyAccess() {
   const { lang } = useLang();
   const vi = lang === "vi";
   const benefits = vi
-    ? ["Tiết kiệm 500,000đ so với giá chính thức", "Vote nội dung curriculum theo nhu cầu thực", "Cohort 20 người - mentor hướng dẫn trực tiếp", "Vào cộng đồng Discord builders HCMC"]
-    : ["정가 대비 500,000đ 할인", "커리큘럼 투표 참여권", "20명 소규모 - 멘토 1:1 지원", "HCMC 빌더 Discord 커뮤니티 입장"];
+    ? ["Tiết kiệm 500,000đ so với giá chính thức", "Vào cộng đồng Discord builders HCMC"]
+    : ["정가 대비 500,000đ 할인", "HCMC 빌더 Discord 커뮤니티 입장"];
 
   return (
     <section id="early" style={{ padding: "100px 40px", background: "var(--white)", position: "relative", overflow: "hidden" }}>
@@ -496,8 +496,8 @@ export function EarlyAccess() {
               {vi ? "Chỉ còn 10 suất early bird" : "얼리버드 10자리 한정"}
             </div>
             <div style={{ fontSize: 14, color: "var(--muted2)", textDecoration: "line-through", marginBottom: 4 }}>{vi ? "3,000,000 VNĐ" : "정가 3,000,000 VNĐ"}</div>
-            <div style={{ fontSize: "clamp(44px,5vw,72px)", fontWeight: 700, letterSpacing: -3, lineHeight: 1, color: "var(--black)" }}>
-              2,500<span style={{ color: "var(--o)" }}>,000</span>
+            <div style={{ fontSize: "clamp(44px,5vw,72px)", fontWeight: 700, letterSpacing: -3, lineHeight: 1, color: "var(--o)" }}>
+              2,500,000
             </div>
             <div style={{ fontSize: 13, color: "var(--muted)", marginTop: 6, marginBottom: 32 }}>VNĐ / {vi ? "khoá học · 4 tuần offline" : "4주 오프라인 과정"}</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
