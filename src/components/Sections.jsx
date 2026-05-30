@@ -175,8 +175,8 @@ export function WhySection() {
   const current = steps[active];
 
   return (
-    <section ref={containerRef} style={{ background: "var(--white)", position: "relative", height: `${steps.length * 100}vh` }}>
-      <div style={{ position: "sticky", top: 0, height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", padding: "60px 40px", overflow: "hidden" }}>
+    <section ref={containerRef} style={{ background: "var(--white)", position: "relative", height: `${steps.length * 80}vh` }}>
+      <div style={{ position: "sticky", top: 0, height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", padding: "40px 40px", overflow: "hidden" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 16 }}>
             How it works
