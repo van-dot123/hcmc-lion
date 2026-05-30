@@ -168,7 +168,7 @@ function HeroCarousel({ lang }) {
                 {item.video ? (
                   item.video.endsWith(".gif")
                     ? <img src={item.video} alt={item.title} className={styles.cardAsset} />
-                    : <video src={item.video} className={styles.cardAsset} autoPlay loop muted playsInline />
+                    : <video src={item.video} className={styles.cardAsset} loop muted playsInline ref={(el) => { if (el) { pos === "center" ? el.play().catch(()=>{}) : el.pause(); } }} />
                 ) : (
                   <>
                     <div className={styles.playBtn} style={{ background: `${item.accent}22`, color: item.accent }}>▶</div>
