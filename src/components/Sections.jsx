@@ -38,7 +38,7 @@ export function TargetSection() {
   ];
 
   return (
-    <section style={{ padding: "100px 40px", background: "#F8F7F5" }}>
+    <section id="audience" style={{ padding: "100px 40px", background: "#F8F7F5" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <motion.div {...fadeUp(0)} style={{ textAlign: "center", fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 14 }}>
           DÀNH CHO AI?
@@ -558,7 +558,7 @@ export function FAQ() {
   ];
   const [open, setOpen] = React.useState(null);
   return (
-    <section id="audience" style={{ padding: "100px 40px", background: "var(--gray-bg)" }}>
+    <section style={{ padding: "100px 40px", background: "var(--gray-bg)" }}>
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
         <div>
           <motion.div {...fadeUp(0)} style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 16 }}>FAQ</motion.div>
