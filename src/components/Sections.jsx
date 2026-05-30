@@ -391,16 +391,16 @@ export function KoreaCommunity() {
             : "같은 모델, 같은 정신으로 — 서울 수강생들은 4주 만에 실제 제품을 만들었습니다."}
         </motion.p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: 32, alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: 32, alignItems: "center" }}>
           <motion.div {...fadeUp(0.2)} style={{ display: "grid", gap: 10 }}>
             <div style={{ aspectRatio: "16/9", borderRadius: 12, overflow: "hidden", border: "0.5px solid #2a2a2a" }}>
               <img src="https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1780139004/section4_img3_u3gu9b.png" alt="Demo Day Seoul" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-              <div style={{ aspectRatio: "1/1", borderRadius: 12, overflow: "hidden", border: "0.5px solid #2a2a2a" }}>
+              <div style={{ aspectRatio: "4/3", borderRadius: 12, overflow: "hidden", border: "0.5px solid #2a2a2a" }}>
                 <img src="https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1780138999/section4_img4_zeo4cg.png" alt="Co-study" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
-              <div style={{ aspectRatio: "1/1", borderRadius: 12, overflow: "hidden", border: "0.5px solid #2a2a2a" }}>
+              <div style={{ aspectRatio: "4/3", borderRadius: 12, overflow: "hidden", border: "0.5px solid #2a2a2a" }}>
                 <img src="https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1780138998/section4_img2_vufetl.png" alt="MVP showcase" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </div>
