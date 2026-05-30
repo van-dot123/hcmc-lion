@@ -1,0 +1,52 @@
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+.scrolled {
+  background: rgba(255,255,255,0.95);
+  border-bottom-color: var(--gray-line);
+  padding: 14px 48px;
+}
+.logo {
+  font-weight: 700; font-size: 16px; color: var(--black);
+  text-decoration: none; letter-spacing: -0.3px;
+  display: flex; align-items: center; gap: 8px;
+}
+.logoDot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--o); display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.7; }
+}
+.right { display: flex; align-items: center; gap: 10px; }
+.langToggle {
+  display: flex; align-items: center;
+  background: var(--gray-bg); border-radius: 8px; padding: 3px;
+  border: 1px solid var(--gray-line);
+}
+.langBtn {
+  padding: 5px 12px; border-radius: 6px; border: none;
+  font-size: 11px; font-weight: 700; cursor: pointer;
+  background: transparent; color: var(--muted);
+  transition: all 0.15s; letter-spacing: 0.5px; font-family: var(--fs);
+}
+.langBtn.active { background: var(--o); color: #fff; }
+.cta {
+  background: var(--o); color: #fff;
+  padding: 9px 20px; border-radius: 6px;
+  font-weight: 700; font-size: 13px; text-decoration: none;
+  transition: background 0.15s; letter-spacing: -0.2px;
+}
+.cta:hover { background: var(--od); }
+
+@media (max-width: 768px) {
+  .nav, .scrolled { padding: 14px 20px; }
+}

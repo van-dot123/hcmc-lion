@@ -1,0 +1,22 @@
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --o:#F15A22;--od:#C44410;--ol:#FEF0EA;
+  --black:#111111;--white:#FFFFFF;
+  --gray-bg:#F8F7F5;--gray-line:#EDEBE6;--muted:#9A9890;--muted2:#C5C3BC;
+  --fs:'Space Grotesk','Be Vietnam Pro',sans-serif;
+  --fkr:'Noto Sans KR',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--black);-webkit-font-smoothing:antialiased;font-family:var(--fs)}
+body.kr{font-family:var(--fkr)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--white)}
+::-webkit-scrollbar-thumb{background:var(--gray-line);border-radius:2px}
+@keyframes howTyping {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-5px); opacity: 1; }
+}
+@keyframes howCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
