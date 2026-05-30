@@ -174,7 +174,7 @@ export default function PortfolioCarousel() {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           {lang === "vi" ? (
-            <>Bạn cũng sẽ build<br /><em>được những thứ này.</em></>
+            <>Đây là những gì bạn<br /><em>có thể tự build.</em></>
           ) : (
             <>당신도 이런 걸<br /><em>만들 수 있습니다.</em></>
           )}
