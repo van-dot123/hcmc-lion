@@ -358,7 +358,7 @@ export function ValuesSection() {
               <div style={{ fontSize: 11, fontWeight: 700, color: "var(--o)", letterSpacing: 1, marginBottom: 12 }}>{v.n}</div>
               <div style={{ fontSize: 17, fontWeight: 700, marginBottom: 12, lineHeight: 1.35 }}>{v.title}</div>
               <div style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.75, marginBottom: 24 }}>{v.desc}</div>
-              <div style={{ aspectRatio: "4/3", borderRadius: 12, overflow: "hidden", border: "1px solid var(--gray-line)" }}>
+              <div style={{ height: 280, borderRadius: 12, overflow: "hidden", border: "1px solid var(--gray-line)" }}>
                 <img src={v.img} alt={v.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </motion.div>
