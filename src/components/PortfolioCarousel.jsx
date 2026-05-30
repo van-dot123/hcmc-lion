@@ -39,7 +39,7 @@ function MediaArea({ item, isCenter }) {
             loading="lazy"
           />
         ) : (
-          <video
+          <video ref={(el) => { if (el) { isCenter ? el.play().catch(()=>{}) : el.pause(); } }}
             src={item.video}
             className={styles.mediaAsset}
             autoPlay
