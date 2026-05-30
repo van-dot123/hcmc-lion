@@ -1,7 +1,20 @@
 .section {
   padding: 100px 40px 110px;
-  background: var(--gray-bg);
+  background: #111;
   overflow: hidden;
+  color: #fff;
+  position: relative;
+}
+.section::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 600px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse,rgba(241,90,34,0.15) 0%,transparent 60%);
+  pointer-events: none;
 }
 .header { text-align: center; margin-bottom: 56px; }
 .badge {
@@ -13,8 +26,9 @@
   font-size: clamp(28px, 4vw, 52px); font-weight: 700;
   letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 14px;
 }
+.title { color: #fff; position: relative; }
 .title em { color: var(--o); font-style: normal; }
-.sub { font-size: 15px; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.75; }
+.sub { font-size: 15px; color: #9A9890; max-width: 480px; margin: 0 auto; line-height: 1.75; position: relative; }
 
 /* Stage */
 .stage {
@@ -118,7 +132,7 @@
 }
 .navBtn {
   width: 44px; height: 44px; border-radius: 50%;
-  border: 1.5px solid var(--gray-line); background: var(--white);
+  border: 0.5px solid #2a2a2a; background: var(--white);
   cursor: pointer; display: flex; align-items: center; justify-content: center;
   font-size: 18px; color: var(--black);
   transition: all 0.2s; font-family: var(--fs);
