@@ -145,7 +145,7 @@ export default function PortfolioCarousel() {
   };
   const stopAuto = () => clearInterval(autoRef.current);
 
-  useEffect(() => { startAuto(); return stopAuto; }, []);
+  useEffect(() => stopAuto, []);
 
   function handleCardClick(index) {
     const pos = getPosition(index, current, total);
