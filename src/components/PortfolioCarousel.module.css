@@ -8,18 +8,18 @@
 .section::before {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 60%;
+  left: -20%;
+  right: -20%;
+  bottom: -10%;
+  height: 75%;
   background-image:
-    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 60px 60px;
-  transform: perspective(600px) rotateX(60deg);
+    linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px);
+  background-size: 80px 80px;
+  transform: perspective(400px) rotateX(72deg);
   transform-origin: center bottom;
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 40%, #000 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 40%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 100%);
   pointer-events: none;
 }
 .section::after {
