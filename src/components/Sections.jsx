@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "../context/LangContext";
 
 // ── shared util ──────────────────────────────────────────────────────────────
@@ -126,11 +127,12 @@ function TargetCard({ card, delay }) {
 export function WhySection() {
   const { lang } = useLang();
   const vi = lang === "vi";
+  const containerRef = useRef(null);
+  const [active, setActive] = useState(0);
 
   const steps = [
     {
       n: "01",
-      lbl: "HOW IT WORKS",
       title: vi ? "Thoát khỏi giới hạn của AI Chat" : "AI 채팅의 한계에서 벗어나기",
       desc: vi
         ? "Copy, paste, hỏi lại — đây chưa phải tận dụng AI. Chatbox chỉ là bề nổi."
@@ -139,7 +141,6 @@ export function WhySection() {
     },
     {
       n: "02",
-      lbl: "HOW IT WORKS",
       title: vi ? "Đưa AI đi làm" : "AI를 실제 업무에 투입하기",
       desc: vi
         ? "Đọc file, tạo tài liệu, build app — AI chạy trực tiếp trên máy tính của bạn."
@@ -148,7 +149,6 @@ export function WhySection() {
     },
     {
       n: "03",
-      lbl: "HOW IT WORKS",
       title: vi ? "Build cùng nhau" : "함께 만들기",
       desc: vi
         ? "HCMC Lions là co-studying: cùng học, cùng build, cùng ra sản phẩm thật."
@@ -157,51 +157,75 @@ export function WhySection() {
     },
   ];
 
-  return (
-    <section style={{ padding: "100px 40px", background: "var(--white)" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <motion.div
-          {...fadeUp(0)}
-          style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 16 }}
-        >
-          How it works
-        </motion.div>
-        <motion.h2
-          {...fadeUp(0.1)}
-          style={{ fontSize: "clamp(28px,3.5vw,48px)", fontWeight: 700, letterSpacing: -1.5, lineHeight: 1.1, marginBottom: 72 }}
-        >
-          {vi
-            ? <>Làm sao để build được<br /><em style={{ color: "var(--o)", fontStyle: "normal" }}>những dự án AI đó?</em></>
-            : <>어떻게 그런 AI 프로젝트를<br /><em style={{ color: "var(--o)", fontStyle: "normal" }}>만들 수 있을까요?</em></>}
-        </motion.h2>
+  useEffect(() => {
+    const onScroll = () => {
+      const el = containerRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const total = el.offsetHeight - window.innerHeight;
+      const progress = Math.max(0, Math.min(1, -rect.top / total));
+      const idx = Math.min(steps.length - 1, Math.floor(progress * steps.length));
+      setActive(idx);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          {steps.map((s, i) => (
-            <motion.div
-              key={i}
-              {...fadeUp(0.12 * i)}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: 80,
-                alignItems: "center",
-                padding: "64px 0",
-                borderTop: i === 0 ? "none" : "1px solid var(--gray-line)",
-              }}
-            >
-              <div style={{ order: i % 2 === 0 ? 1 : 2 }}>
-                <div style={{ fontSize: 9, fontWeight: 700, color: "var(--muted2)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 6 }}>BƯỚC</div>
-                <div style={{ fontSize: 56, fontWeight: 700, color: "var(--o)", letterSpacing: -3, lineHeight: 1, marginBottom: 20 }}>{s.n}</div>
-                <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 14, letterSpacing: -0.5, lineHeight: 1.25 }}>{s.title}</div>
-                <div style={{ fontSize: 15, color: "var(--muted)", lineHeight: 1.85 }}>{s.desc}</div>
-              </div>
-              <div style={{ order: i % 2 === 0 ? 2 : 1 }}>
-                {s.visual === "chat" && <HowChatVisual />}
-                {s.visual === "code" && <HowCodeVisual />}
-                {s.visual === "team" && <HowTeamVisual />}
-              </div>
-            </motion.div>
-          ))}
+  const current = steps[active];
+
+  return (
+    <section ref={containerRef} style={{ background: "var(--white)", position: "relative", height: `${steps.length * 100}vh` }}>
+      <div style={{ position: "sticky", top: 0, height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", padding: "60px 40px", overflow: "hidden" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%" }}>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 16 }}>
+            How it works
+          </div>
+          <h2 style={{ fontSize: "clamp(28px,3.5vw,48px)", fontWeight: 700, letterSpacing: -1.5, lineHeight: 1.1, marginBottom: 28 }}>
+            {vi
+              ? <>Làm sao để build được<br /><em style={{ color: "var(--o)", fontStyle: "normal" }}>những dự án AI đó?</em></>
+              : <>어떻게 그런 AI 프로젝트를<br /><em style={{ color: "var(--o)", fontStyle: "normal" }}>만들 수 있을까요?</em></>}
+          </h2>
+
+          <div style={{ display: "flex", gap: 4, height: 2, marginBottom: 48 }}>
+            {steps.map((_, i) => (
+              <div key={i} style={{ flex: 1, background: i < active ? "var(--black)" : i === active ? "var(--o)" : "var(--gray-line)", borderRadius: 1, transition: "background 0.4s" }} />
+            ))}
+          </div>
+
+          <div style={{ position: "relative", minHeight: 380 }}>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -24 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}
+              >
+                <div style={{ order: active % 2 === 0 ? 1 : 2 }}>
+                  <div style={{ fontSize: 9, fontWeight: 700, color: "var(--muted2)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 6 }}>BƯỚC</div>
+                  <div style={{ fontSize: 56, fontWeight: 700, color: "var(--o)", letterSpacing: -3, lineHeight: 1, marginBottom: 20 }}>{current.n}</div>
+                  <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 14, letterSpacing: -0.5, lineHeight: 1.25 }}>{current.title}</div>
+                  <div style={{ fontSize: 15, color: "var(--muted)", lineHeight: 1.85 }}>{current.desc}</div>
+                </div>
+                <div style={{ order: active % 2 === 0 ? 2 : 1 }}>
+                  {current.visual === "chat" && <HowChatVisual />}
+                  {current.visual === "code" && <HowCodeVisual />}
+                  {current.visual === "team" && <HowTeamVisual />}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 36, paddingTop: 20, borderTop: "0.5px solid var(--gray-line)" }}>
+            <div style={{ fontSize: 11, color: "var(--muted)" }}>
+              {vi ? "Scroll xuống để xem tiếp" : "스크롤해서 다음 단계로"} ↓
+            </div>
+            <div style={{ fontSize: 12, color: "var(--muted2)", fontWeight: 600, letterSpacing: 0.5 }}>
+              <span style={{ color: "var(--black)", fontWeight: 700 }}>{String(active + 1).padStart(2, "0")}</span> / 0{steps.length}
+            </div>
+          </div>
         </div>
       </div>
     </section>
