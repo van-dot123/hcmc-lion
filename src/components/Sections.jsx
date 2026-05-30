@@ -473,6 +473,17 @@ export function KoreaCommunity() {
 }
 
 // ── Early Access ──────────────────────────────────────────────────────────────
+const inputSt = { width: "100%", background: "var(--white)", border: "1px solid var(--gray-line)", color: "var(--black)", padding: "11px 14px", borderRadius: 8, fontSize: 14, outline: "none", fontFamily: "var(--fs)" };
+
+function FormField({ label, children }) {
+  return (
+    <div style={{ marginBottom: 14 }}>
+      <label style={{ display: "block", fontSize: 11, fontWeight: 600, color: "var(--muted)", marginBottom: 6, letterSpacing: 0.5, textTransform: "uppercase" }}>{label}</label>
+      {children}
+    </div>
+  );
+}
+
 export function EarlyAccess() {
   const { lang } = useLang();
   const vi = lang === "vi";
@@ -511,28 +522,67 @@ export function EarlyAccess() {
           </motion.div>
           {/* Right: form */}
           <motion.div {...fadeUp(0.25)}
-            style={{ background: "var(--gray-bg)", border: "1px solid var(--gray-line)", borderRadius: 20, padding: "40px 36px" }}
+            style={{ background: "var(--gray-bg)", border: "1px solid var(--gray-line)", borderRadius: 20, padding: "36px 32px" }}
           >
             <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 4, letterSpacing: -0.5 }}>{vi ? "Giữ chỗ ngay" : "자리 예약하기"}</div>
-            <div style={{ fontSize: 13, color: "var(--muted)", marginBottom: 28, lineHeight: 1.6 }}>{vi ? "Điền thông tin, team Lions liên hệ trong 24h." : "24시간 내에 연락드립니다."}</div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 14 }}>
-              {[{ label: vi ? "Họ và tên" : "성함", id: "name", placeholder: vi ? "Nguyễn Văn A" : "홍길동", type: "text" },
-                { label: vi ? "Điện thoại" : "연락처", id: "phone", placeholder: vi ? "0901 234 567" : "010-1234-5678", type: "tel" }].map((f) => (
-                <div key={f.id}>
-                  <label style={{ display: "block", fontSize: 11, fontWeight: 600, color: "var(--muted)", marginBottom: 6, letterSpacing: .5, textTransform: "uppercase" }}>{f.label}</label>
-                  <input type={f.type} placeholder={f.placeholder} style={{ width: "100%", background: "var(--white)", border: "1px solid var(--gray-line)", color: "var(--black)", padding: "11px 14px", borderRadius: 8, fontSize: 14, outline: "none", fontFamily: "var(--fs)" }} />
-                </div>
-              ))}
-            </div>
-            {[{ label: "Email", type: "email", placeholder: "your@email.com" },
-              { label: vi ? "Bạn muốn build gì?" : "무엇을 만들고 싶으신가요?", type: "textarea", placeholder: vi ? "Dashboard, automation, web app..." : "대시보드, 자동화 봇, 웹 앱..." }].map((f, i) => (
-              <div key={i} style={{ marginBottom: 14 }}>
-                <label style={{ display: "block", fontSize: 11, fontWeight: 600, color: "var(--muted)", marginBottom: 6, letterSpacing: .5, textTransform: "uppercase" }}>{f.label}</label>
-                {f.type === "textarea"
-                  ? <textarea placeholder={f.placeholder} rows={3} style={{ width: "100%", background: "var(--white)", border: "1px solid var(--gray-line)", color: "var(--black)", padding: "11px 14px", borderRadius: 8, fontSize: 14, outline: "none", fontFamily: "var(--fs)", resize: "vertical" }} />
-                  : <input type={f.type} placeholder={f.placeholder} style={{ width: "100%", background: "var(--white)", border: "1px solid var(--gray-line)", color: "var(--black)", padding: "11px 14px", borderRadius: 8, fontSize: 14, outline: "none", fontFamily: "var(--fs)" }} />}
+            <div style={{ fontSize: 13, color: "var(--muted)", marginBottom: 24, lineHeight: 1.6 }}>{vi ? "Điền thông tin, team Lions liên hệ trong 24h." : "24시간 내에 연락드립니다."}</div>
+
+            <FormField label={vi ? "Họ và tên" : "성함"}>
+              <input type="text" placeholder={vi ? "Nguyễn Văn A" : "홍길동"} style={inputSt} />
+            </FormField>
+            <FormField label="Email">
+              <input type="email" placeholder="your@email.com" style={inputSt} />
+            </FormField>
+            <FormField label={vi ? "Số điện thoại" : "연락처"}>
+              <input type="tel" placeholder={vi ? "0901 234 567" : "010-1234-5678"} style={inputSt} />
+            </FormField>
+
+            <FormField label={vi ? "Công việc hiện tại" : "현재 직업"}>
+              <select style={inputSt} defaultValue="">
+                <option value="" disabled>{vi ? "Chọn công việc..." : "선택..."}</option>
+                {(vi
+                  ? ["Designer", "Marketer", "PM / PO", "Sales / BD", "Founder / Owner", "HR / Ops", "Lập trình viên", "Sinh viên", "Khác"]
+                  : ["Designer", "Marketer", "PM / PO", "Sales / BD", "Founder", "HR / Ops", "개발자", "학생", "기타"]
+                ).map(o => <option key={o}>{o}</option>)}
+              </select>
+            </FormField>
+
+            <FormField label={vi ? "Bạn muốn build gì với AI? (chọn nhiều)" : "AI로 무엇을 만들고 싶으신가요? (복수)"}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 4 }}>
+                {(vi
+                  ? ["AI Automation cho công việc", "AI Agent / Chatbot", "Sản phẩm SaaS / Web app", "Tool nội bộ cho team", "AI cho content / marketing", "AI cho phân tích dữ liệu", "Chưa rõ, muốn khám phá"]
+                  : ["업무 자동화", "AI 에이전트 / 챗봇", "SaaS / 웹 앱", "팀 내부 도구", "콘텐츠 / 마케팅 AI", "데이터 분석 AI", "아직 미정"]
+                ).map(opt => (
+                  <label key={opt} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "var(--black)", cursor: "pointer", padding: "8px 10px", background: "var(--white)", border: "1px solid var(--gray-line)", borderRadius: 6 }}>
+                    <input type="checkbox" name="goal" value={opt} style={{ accentColor: "var(--o)" }} />
+                    {opt}
+                  </label>
+                ))}
               </div>
-            ))}
+            </FormField>
+
+            <FormField label={vi ? "Trình độ AI hiện tại" : "현재 AI 수준"}>
+              <select style={inputSt} defaultValue="">
+                <option value="" disabled>{vi ? "Chọn trình độ..." : "선택..."}</option>
+                {(vi
+                  ? ["Mới bắt đầu, đang khám phá", "Dùng ChatGPT / Claude thường xuyên", "Đã thử build nhưng chưa ra sản phẩm", "Đã build được, muốn nâng cao"]
+                  : ["입문자", "ChatGPT / Claude 자주 사용", "빌드 시도 중", "이미 빌드 경험"]
+                ).map(o => <option key={o}>{o}</option>)}
+              </select>
+            </FormField>
+
+            <FormField label={vi ? "Bạn nghe về khoá học từ đâu?" : "어디서 알게 되셨나요?"}>
+              <select style={inputSt} defaultValue="">
+                <option value="" disabled>{vi ? "Chọn nguồn..." : "선택..."}</option>
+                {["Facebook", "Instagram", "TikTok", "LinkedIn", vi ? "Bạn bè giới thiệu" : "지인 추천", vi ? "Khác" : "기타"].map(o => <option key={o}>{o}</option>)}
+              </select>
+            </FormField>
+
+            <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 12, color: "var(--muted)", cursor: "pointer", marginTop: 8, marginBottom: 14, lineHeight: 1.5 }}>
+              <input type="checkbox" defaultChecked style={{ accentColor: "var(--o)", marginTop: 2, flexShrink: 0 }} />
+              <span>{vi ? "Tôi đồng ý nhận email và SMS cập nhật từ HCMC Lions" : "HCMC Lions의 이메일 및 SMS 수신에 동의합니다"}</span>
+            </label>
+
             <button style={{ width: "100%", background: "var(--o)", color: "#fff", border: "none", padding: 15, borderRadius: 8, fontSize: 15, fontWeight: 700, cursor: "pointer", fontFamily: "var(--fs)", marginTop: 4, letterSpacing: -0.3 }}>
               {vi ? "Đăng ký giữ chỗ →" : "얼리버드 신청하기 →"}
             </button>
