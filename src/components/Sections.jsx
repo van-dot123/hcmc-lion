@@ -429,7 +429,7 @@ export function KoreaCommunity() {
               ))}
             </div>
 
-            
+            <a
               href="https://likelion.net/b2b"
               target="_blank"
               rel="noopener noreferrer"
