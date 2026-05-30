@@ -21,8 +21,7 @@ export default function Nav() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       <a href="#" className={styles.logo}>
-        <span className={styles.logoDot} />
-        HCMC Lions
+        <img src="https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1779958499/HCMLIONS_tmtix4.png" alt="HCMC Lions" />
       </a>
 
       <div className={styles.right}>

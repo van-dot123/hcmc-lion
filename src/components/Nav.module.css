@@ -13,9 +13,11 @@
   padding: 14px 48px;
 }
 .logo {
-  font-weight: 700; font-size: 16px; color: var(--black);
-  text-decoration: none; letter-spacing: -0.3px;
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center;
+  text-decoration: none;
+}
+.logo img {
+  height: 32px; width: auto; display: block;
 }
 .logoDot {
   width: 8px; height: 8px; border-radius: 50%;
