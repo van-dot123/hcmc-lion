@@ -558,7 +558,7 @@ export function FAQ() {
   const [open, setOpen] = React.useState(null);
   return (
     <section style={{ padding: "100px 40px", background: "var(--gray-bg)" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }}>
+      <div style={{ maxWidth: 760, margin: "0 auto" }}>
         <div>
           <motion.div {...fadeUp(0)} style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 16 }}>FAQ</motion.div>
           <motion.h2 {...fadeUp(0.1)} style={{ fontSize: "clamp(28px,3.5vw,48px)", fontWeight: 700, letterSpacing: -1.5, lineHeight: 1.1, marginBottom: 40 }}>
@@ -577,22 +577,6 @@ export function FAQ() {
             </div>
           ))}
         </div>
-        <motion.div {...fadeUp(0.2)}
-          style={{ background: "var(--white)", border: "1px solid var(--gray-line)", borderRadius: 16, padding: 36, position: "sticky", top: 100 }}
-        >
-          <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: -0.8, marginBottom: 12, lineHeight: 1.3 }}>
-            {vi ? "Bạn cũng có thể build điều này." : "당신도 이걸 만들 수 있습니다."}
-          </div>
-          <div style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.75, marginBottom: 24 }}>
-            {vi ? "4 tuần, 2 giờ mỗi thứ 7. Không cần code." : "4주, 매주 토요일 2시간. 코딩 불필요."}
-          </div>
-          <a href="#early" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "var(--o)", color: "#fff", padding: "14px 28px", borderRadius: 8, fontWeight: 700, fontSize: 14, textDecoration: "none", marginBottom: 12 }}>
-            {vi ? "Đăng ký giữ chỗ →" : "얼리버드 신청하기 →"}
-          </a>
-          <p style={{ fontSize: 11, color: "var(--muted2)", textAlign: "center" }}>
-            {vi ? "⚡ Còn 10 suất · 2,500,000 VNĐ" : "⚡ 10자리 한정 · 2,500,000 VNĐ"}
-          </p>
-        </motion.div>
       </div>
     </section>
   );
