@@ -321,6 +321,7 @@ export function ValuesSection() {
       desc: vi
         ? "Câu hỏi \"AI hay con người\" đã lỗi thời. Hỏi đúng hơn: làm sao làm việc cùng AI hiệu quả nhất?"
         : "\"AI냐 인간이냐\"는 구시대 질문입니다. 올바른 질문은: AI와 어떻게 효율적으로 협업할까?",
+      img: "https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1779957956/482203736_1084404486822514_556847603464305365_n_ywd2f6.jpg",
     },
     {
       n: "02 —",
@@ -328,6 +329,7 @@ export function ValuesSection() {
       desc: vi
         ? "Đừng bị cuốn theo tool mới nhất. Chỉ cần tìm giải pháp phù hợp với nhu cầu thực của bản thân."
         : "최신 툴을 쫓지 마세요. 내 실제 필요에 맞는 솔루션만 찾으면 됩니다.",
+      img: "https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1779957956/480664070_1421344219273717_766603543067293344_n_ml1aws.jpg",
     },
     {
       n: "03 —",
@@ -335,6 +337,7 @@ export function ValuesSection() {
       desc: vi
         ? "Tinh thần startup: đừng chần chừ vì sợ sai. Thử nghiệm nhanh sẽ giúp bạn vượt giới hạn bản thân."
         : "스타트업 정신: 실수가 두렵다고 망설이지 마세요. 빠른 실험이 한계를 넘게 해줍니다.",
+      img: "https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1779957956/481248195_1422998545774951_8723276155117443191_n_mywrxk.jpg",
     },
   ];
 
@@ -355,8 +358,8 @@ export function ValuesSection() {
               <div style={{ fontSize: 11, fontWeight: 700, color: "var(--o)", letterSpacing: 1, marginBottom: 12 }}>{v.n}</div>
               <div style={{ fontSize: 17, fontWeight: 700, marginBottom: 12, lineHeight: 1.35 }}>{v.title}</div>
               <div style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.75, marginBottom: 24 }}>{v.desc}</div>
-              <div style={{ aspectRatio: "4/3", borderRadius: 12, background: "var(--gray-bg)", border: "1px solid var(--gray-line)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontSize: 12, color: "var(--muted2)" }}>Ảnh lớp học</span>
+              <div style={{ aspectRatio: "4/3", borderRadius: 12, overflow: "hidden", border: "1px solid var(--gray-line)" }}>
+                <img src={v.img} alt={v.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
               </div>
             </motion.div>
           ))}
