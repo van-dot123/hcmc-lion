@@ -297,38 +297,14 @@ function HowCodeVisual() {
 function HowTeamVisual() {
   return (
     <div style={{
-      background: "var(--gray-bg)", border: "1px solid var(--gray-line)",
       borderRadius: 16, aspectRatio: "16/10",
-      display: "flex", flexDirection: "column",
-      alignItems: "center", justifyContent: "center", gap: 14,
+      overflow: "hidden", border: "1px solid var(--gray-line)",
     }}>
-      <div style={{ display: "flex" }}>
-        {[
-          { bg: "#F15A22", label: "A" },
-          { bg: "#4ECDC4", label: "B" },
-          { bg: "#6C5CE7", label: "C" },
-          { bg: "#E8A020", label: "D" },
-          { bg: "#2A9D5C", label: "+" },
-        ].map((av, i) => (
-          <div key={i} style={{
-            width: 44, height: 44, borderRadius: "50%",
-            background: av.bg, border: "3px solid var(--white)",
-            marginLeft: i ? -12 : 0,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 13, fontWeight: 700, color: "#fff",
-          }}>
-            {av.label}
-          </div>
-        ))}
-      </div>
-      <div style={{ textAlign: "center" }}>
-        <p style={{ fontSize: 13, fontWeight: 700, color: "var(--black)", marginBottom: 4 }}>
-          Co-studying cohort · Max 20
-        </p>
-        <p style={{ fontSize: 12, color: "var(--muted)" }}>
-          Thêm ảnh lớp học thật vào đây
-        </p>
-      </div>
+      <img
+        src="https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1780138405/A%CC%89nh_chu%CC%A3p_Ma%CC%80n_hi%CC%80nh_2026-05-30_lu%CC%81c_17.53.01_anet2r.png"
+        alt="Co-studying cohort"
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      />
     </div>
   );
 }
