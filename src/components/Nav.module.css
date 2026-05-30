@@ -28,6 +28,16 @@
   0%,100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.4); opacity: 0.7; }
 }
+.menu { display: flex; align-items: center; gap: 28px; }
+.menu a {
+  font-size: 13px; font-weight: 600; color: var(--muted);
+  text-decoration: none; letter-spacing: -0.1px;
+  transition: color 0.15s;
+}
+.menu a:hover { color: var(--black); }
+@media (max-width: 900px) {
+  .menu { display: none; }
+}
 .right { display: flex; align-items: center; gap: 10px; }
 .langToggle {
   display: flex; align-items: center;

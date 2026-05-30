@@ -12,6 +12,7 @@ const fadeUp = (delay = 0) => ({
 
 // ── Target Section ────────────────────────────────────────────────────────────
 export function TargetSection() {
+  const _id = "audience";
   const cards = [
     {
       n: "01",
@@ -175,7 +176,7 @@ export function WhySection() {
   const current = steps[active];
 
   return (
-    <section ref={containerRef} style={{ background: "var(--white)", position: "relative", height: `${steps.length * 80}vh` }}>
+    <section id="how" ref={containerRef} style={{ background: "var(--white)", position: "relative", height: `${steps.length * 80}vh` }}>
       <div style={{ position: "sticky", top: 0, height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", padding: "40px 40px", overflow: "hidden" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%" }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 16 }}>
@@ -557,7 +558,7 @@ export function FAQ() {
   ];
   const [open, setOpen] = React.useState(null);
   return (
-    <section style={{ padding: "100px 40px", background: "var(--gray-bg)" }}>
+    <section id="audience" style={{ padding: "100px 40px", background: "var(--gray-bg)" }}>
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
         <div>
           <motion.div {...fadeUp(0)} style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "var(--o)", marginBottom: 16 }}>FAQ</motion.div>

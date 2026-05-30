@@ -24,6 +24,12 @@ export default function Nav() {
         <img src="https://res.cloudinary.com/dcbythlhu/image/upload/q_auto/f_auto/v1779958499/HCMLIONS_tmtix4.png" alt="HCMC Lions" />
       </a>
 
+      <div className={styles.menu}>
+        <a href="#audience">{lang === "vi" ? "Đối tượng học viên" : "수강 대상"}</a>
+        <a href="#how">{lang === "vi" ? "Về khoá học" : "수업 소개"}</a>
+        <a href="#portfolio">{lang === "vi" ? "Kết quả từ học viên" : "수강생 결과물"}</a>
+      </div>
+
       <div className={styles.right}>
         <div className={styles.langToggle}>
           {["vi", "kr"].map((l) => (
